@@ -15,6 +15,6 @@ func Connect() *mongo.Database {
 		log.Fatal(err)
 	}
 
-	fmt.Printf("Connected to client!")
+	fmt.Printf("Connected to database!")
 	return client.Database("muxmongo")
 }
