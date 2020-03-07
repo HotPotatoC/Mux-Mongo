@@ -25,7 +25,7 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte(`{ "message": "` + err.Error() + `"}`))
+		_, _ = w.Write([]byte(`{ "message": "` + err.Error() + `"}`))
 		return
 	}
 
@@ -41,7 +41,7 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 	if err := cursor.Err(); err != nil {
 		log.Fatal(err)
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte(`{ "message": "` + err.Error() + `"}`))
+		_, _ = w.Write([]byte(`{ "message": "` + err.Error() + `"}`))
 		return
 	}
 
@@ -49,7 +49,7 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal(err)
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte(`{ "message": "` + err.Error() + `"}`))
+		_, _ = w.Write([]byte(`{ "message": "` + err.Error() + `"}`))
 		return
 	}
 
