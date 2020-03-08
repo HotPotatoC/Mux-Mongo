@@ -10,11 +10,14 @@ import (
 )
 
 func Connect() *mongo.Database {
-	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI("mongodb://localhost:27017"))
+	uri := "mongodb://localhost:27017"
+	dbname := "muxmongo"
+
+    client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	fmt.Printf("Connected to database!")
-	return client.Database("muxmongo")
+	return client.Database(dbname)
 }
