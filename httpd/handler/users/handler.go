@@ -29,8 +29,6 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	defer cursor.Close(context.TODO())
-
 	for cursor.Next(context.TODO()) {
 		var user platform.User
 		_ = cursor.Decode(&user)
@@ -53,6 +51,7 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	defer cursor.Close(context.TODO())
 	defer r.Body.Close()
 }
 
