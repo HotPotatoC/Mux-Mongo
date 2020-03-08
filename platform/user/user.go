@@ -4,23 +4,12 @@ import "go.mongodb.org/mongo-driver/bson/primitive"
 
 type User struct {
 	ID           primitive.ObjectID `json:"_id,omitempty" bson:"_id,omitempty"`
-	Index        rune               `json:"index" bson:"index"`
-	Guid         string             `json:"guid" bson:"guid"`
-	IsActive     bool               `json:"isActive" bson:"isActive"`
-	Balance      string             `json:"balance" bson:"balance"`
-	Picture      string             `json:"picture" bson:"picture"`
-	Age          rune               `json:"age" bson:"age"`
-	EyeColor     string             `json:"eyeColor" bson:"eyeColor"`
-	Name         string             `json:"name" bson:"name"`
-	Gender       string             `json:"gender" bson:"gender"`
-	Company      string             `json:"company" bson:"company"`
-	Email        string             `json:"email" bson:"email"`
-	Phone        string             `json:"phone" bson:"phone"`
-	Address      string             `json:"address" bson:"address"`
-	About        string             `json:"about" bson:"about"`
-	Registered   string             `json:"registered" bson:"registered"`
-	Latitude     float32            `json:"latitude" bson:"latitude"`
-	Longitude    float32            `json:"longitude" bson:"longitude"`
-	Greeting     string             `json:"greeting" bson:"greeting"`
-	FavoriteFood string             `json:"favoriteFood" bson:"favoriteFood"`
+	Guid         string             `json:"guid,omitempty" bson:"guid,omitempty"`
+	Picture      string             `json:"picture,omitempty" bson:"picture,omitempty"`
+	Age          rune               `json:"age,omitempty" bson:"age,omitempty"`
+	Name         string             `json:"name,omitempty" bson:"name,omitempty"`
+	Gender       string             `json:"gender,omitempty" bson:"gender,omitempty"`
+	Company      string             `json:"company,omitempty" bson:"company,omitempty"`
+	Email        string             `json:"email,omitempty" bson:"email,omitempty"`
+	Registered   string             `json:"registered,omitempty" bson:"registered,omitempty"`
 }
