@@ -13,7 +13,7 @@ func Connect() *mongo.Database {
 	uri := "mongodb://localhost:27017"
 	dbname := "muxmongo"
 
-    client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
+	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(uri))
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -3,7 +3,6 @@ package userhandler
 import (
 	"context"
 	"encoding/json"
-	"log"
 	"mux-mongo/database"
 	platform "mux-mongo/platform/user"
 	"net/http"
@@ -23,7 +22,6 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 
 	cursor, err := collection.Find(context.TODO(), bson.M{})
 	if err != nil {
-		log.Fatal(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		_, _ = w.Write([]byte(`{ "message": "` + err.Error() + `"}`))
 		return
@@ -37,7 +35,6 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if err := cursor.Err(); err != nil {
-		log.Fatal(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		_, _ = w.Write([]byte(`{ "message": "` + err.Error() + `"}`))
 		return
@@ -45,7 +42,6 @@ func GetUsers(w http.ResponseWriter, r *http.Request) {
 
 	err = json.NewEncoder(w).Encode(users)
 	if err != nil {
-		log.Fatal(err)
 		w.WriteHeader(http.StatusInternalServerError)
 		_, _ = w.Write([]byte(`{ "message": "` + err.Error() + `"}`))
 		return
