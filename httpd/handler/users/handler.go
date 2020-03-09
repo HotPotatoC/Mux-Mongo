@@ -130,6 +130,8 @@ func UpdateUser(w http.ResponseWriter, r *http.Request) {
 		_, _ = w.Write([]byte(`{ "message": "` + err.Error() + `"}`))
 		return
 	}
+
+	defer r.Body.Close()
 }
 
 func DeleteUser(w http.ResponseWriter, r *http.Request) {
@@ -151,4 +153,6 @@ func DeleteUser(w http.ResponseWriter, r *http.Request) {
 		_, _ = w.Write([]byte(`{ "message": "` + err.Error() + `"}`))
 		return
 	}
+
+	defer r.Body.Close()
 }
